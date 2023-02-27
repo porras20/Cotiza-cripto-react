@@ -21,6 +21,7 @@ border: none;
 font-size: 1.2rem;
 `
 export const useCriptomoneda = (label, stateInicial, opciones) => {
+    
     //State de nuestro custom hook
     const [state, actualizarState] = useState(stateInicial);
     const SelectCripto = () =>(
@@ -30,10 +31,11 @@ export const useCriptomoneda = (label, stateInicial, opciones) => {
                 onChange={e =>{actualizarState(e.target.value)}}
                 value={state}
             >
-                <option value="">-- Seleccione --</option>
-                {/* {opciones.map(opcion => (
-                    <option value={opcion.codigo} key={opcion.codigo}>{opcion.nombre}</option>
-                ))} */}
+                <option value="" key={1}>-- Seleccione --</option>
+                {opciones.map(opcion => (
+                    <option value={opcion.CoinInfo.Name} key={opcion.CoinInfo.Id}>{opcion.CoinInfo.FullName}</option>
+
+                ))}
             </Select>
         </>
     )
